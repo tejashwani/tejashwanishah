@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tejashwani Shah - Executive Software Developer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --secondary: #8b5cf6;
+            --accent: #ec4899;
+            --dark: #0f172a;
+            --dark-light: #1e293b;
+            --gray: #64748b;
+            --light: #f1f5f9;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background: var(--white);
+            overflow-x: hidden;
+        }
+
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Mobile Menu Toggle */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: var(--dark);
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            position: relative;
+            overflow: hidden;
+            padding-top: 80px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: moveBackground 20s linear infinite;
+        }
+
+        @keyframes moveBackground {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            position: relative;
+            z-index: 1;
+            color: var(--white);
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease 0.2s backwards;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease 0.4s backwards;
+        }
+
+        .contact-info {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease 0.6s backwards;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .contact-item a {
+            color: var(--white);
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .contact-item a:hover {
+            opacity: 0.8;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease 0.8s backwards;
+        }
+
+        .btn {
+            padding: 0.8rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: var(--white);
+            color: var(--primary);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+
+        .btn-secondary:hover {
+            background: var(--white);
+            color: var(--primary);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Section Styling */
+        section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            position: relative;
+            color: var(--dark);
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 2px;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.2);
+        }
+
+        .skill-category h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill-tag {
+            background: var(--light);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: var(--dark);
+            transition: all 0.3s ease;
+        }
+
+        .skill-tag:hover {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        /* Experience Section */
+        .timeline {
+            position: relative;
+            padding-left: 3rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(180deg, var(--primary), var(--secondary));
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 3rem;
+            padding: 1.5rem;
+            background: var(--white);
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .timeline-item:hover {
+            transform: translateX(10px);
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -3.5rem;
+            top: 1.5rem;
+            width: 15px;
+            height: 15px;
+            background: var(--primary);
+            border-radius: 50%;
+            border: 3px solid var(--white);
+            box-shadow: 0 0 0 3px var(--primary);
+        }
+
+        .timeline-date {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--white);
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .timeline-item h3 {
+            color: var(--dark);
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-item h4 {
+            color: var(--gray);
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        .timeline-item ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .timeline-item li {
+            padding-left: 1.5rem;
+            margin-bottom: 0.5rem;
+            position: relative;
+        }
+
+        .timeline-item li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        /* Education Section */
+        .education-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .education-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            border-left: 4px solid var(--primary);
+            transition: transform 0.3s ease;
+        }
+
+        .education-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .education-card h3 {
+            color: var(--primary);
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .education-card .degree {
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .education-card .institution {
+            color: var(--gray);
+            margin-bottom: 0.5rem;
+        }
+
+        .education-card .percentage {
+            background: var(--light);
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            display: inline-block;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(99, 102, 241, 0.2);
+        }
+
+        .project-header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--white);
+            padding: 1.5rem;
+        }
+
+        .project-header h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-header .company {
+            opacity: 0.9;
+            font-size: 0.9rem;
+        }
+
+        .project-body {
+            padding: 1.5rem;
+        }
+
+        .project-body p {
+            color: var(--gray);
+            margin-bottom: 1rem;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .tech-badge {
+            background: var(--light);
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            color: var(--primary);
+            font-weight: 500;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: var(--white);
+            text-align: center;
+            padding: 2rem;
+        }
+
+        footer p {
+            margin-bottom: 1rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                flex-direction: column;
+                background: var(--white);
+                width: 100%;
+                padding: 2rem;
+                box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+                transition: left 0.3s ease;
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero h2 {
+                font-size: 1.5rem;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .timeline {
+                padding-left: 2rem;
+            }
+
+            .timeline-item::before {
+                left: -2.5rem;
+            }
+
+            .projects-grid,
+            .education-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Scroll Animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">TS</div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Tejashwani Shah</h1>
+            <h2>Executive Software Developer</h2>
+            <p>With 5+ years of experience in full-stack development, I specialize in building high-performance applications and optimizing systems for scalability. Passionate about innovation and driving business growth through technology.</p>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <span>📧</span>
+                    <a href="mailto:tejashwanishah@gmail.com">tejashwanishah@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                    <span>📱</span>
+                    <a href="tel:+919205639940">+91 9205639940</a>
+                </div>
+                <div class="contact-item">
+                    <span>💼</span>
+                    <a href="https://www.linkedin.com/in/tejashwani-shah/" target="_blank">LinkedIn</a>
+                </div>
+            </div>
+
+            <div class="cta-buttons">
+                <a href="#contact" class="btn btn-primary">Get In Touch</a>
+                <a href="#projects" class="btn btn-secondary">View Projects</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <h2 class="section-title">Technical Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-category fade-in">
+                <h3>Frontend Development</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">JavaScript</span>
+                    <span class="skill-tag">React</span>
+                    <span class="skill-tag">AngularJS</span>
+                    <span class="skill-tag">Bootstrap</span>
+                    <span class="skill-tag">jQuery</span>
+                </div>
+            </div>
+
+            <div class="skill-category fade-in">
+                <h3>Backend Development</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">PHP</span>
+                    <span class="skill-tag">Node.js</span>
+                    <span class="skill-tag">Django</span>
+                    <span class="skill-tag">Flask</span>
+                    <span class="skill-tag">Python</span>
+                </div>
+            </div>
+
+            <div class="skill-category fade-in">
+                <h3>Databases</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">MySQL</span>
+                    <span class="skill-tag">MongoDB</span>
+                    <span class="skill-tag">SQL</span>
+                </div>
+            </div>
+
+            <div class="skill-category fade-in">
+                <h3>Testing</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Enzyme</span>
+                    <span class="skill-tag">RTL</span>
+                    <span class="skill-tag">Cypress</span>
+                </div>
+            </div>
+
+            <div class="skill-category fade-in">
+                <h3>Cloud Services</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">AWS AppSync</span>
+                    <span class="skill-tag">AWS Lambda</span>
+                    <span class="skill-tag">Redis</span>
+                </div>
+            </div>
+
+            <div class="skill-category fade-in">
+                <h3>Additional Skills</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">RESTful APIs</span>
+                    <span class="skill-tag">Razorpay</span>
+                    <span class="skill-tag">Stripe</span>
+                    <span class="skill-tag">PayPal</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience">
+        <h2 class="section-title">Work Experience</h2>
+        <div class="timeline">
+            <div class="timeline-item fade-in">
+                <span class="timeline-date">Sept 2025 - Present</span>
+                <h3>Executive Software Developer</h3>
+                <h4>AIC OF INDIA LIMITED, DELHI</h4>
+                <ul>
+                    <li>Worked on government projects to digitalize insurance and pension processes into online portals</li>
+                    <li>Developed insurance modules (Shrimp, Fire, Property, Aquaculture) and pension slip generation systems</li>
+                    <li>Built robust party and user management modules with role-based access control (RBAC)</li>
+                    <li>Integrated Razorpay payment gateway for seamless premium collection</li>
+                    <li>Architected flexible report generation systems supporting PDF, Excel, and CSV formats</li>
+                </ul>
+            </div>
+
+            <div class="timeline-item fade-in">
+                <span class="timeline-date">Apr 2024 - Sept 2025</span>
+                <h3>Senior Software Engineer</h3>
+                <h4>ADGAMA DIGITAL, GURUGRAM</h4>
+                <ul>
+                    <li>Engineered secure and efficient payment gateways using JavaScript, PHP, and Node.js</li>
+                    <li>Designed and developed dynamic web applications with React</li>
+                    <li>Architected highly scalable backend using Zend Framework supporting hundreds of concurrent users</li>
+                    <li>Integrated Redis caching for ultra-fast data retrieval in high-traffic scenarios</li>
+                    <li>Deployed on AWS AppSync ensuring cost-efficient scalability</li>
+                </ul>
+            </div>
+
+            <div class="timeline-item fade-in">
+                <span class="timeline-date">Apr 2022 - Dec 2023</span>
+                <h3>Software Engineer</h3>
+                <h4>APPY PIE LLP, NOIDA</h4>
+                <ul>
+                    <li>Designed and developed robust API services for Snappy app builder platform</li>
+                    <li>Led team to revamp full-scale application with enhanced features and functionality</li>
+                    <li>Optimized database queries to boost efficiency and responsiveness</li>
+                    <li>Refactored legacy PHP codebases, improving maintainability and reducing technical debt</li>
+                    <li>Built dynamic frontend interfaces using HTML, CSS, and AngularJS</li>
+                </ul>
+            </div>
+
+            <div class="timeline-item fade-in">
+                <span class="timeline-date">Dec 2020 - Apr 2022</span>
+                <h3>Software Engineer</h3>
+                <h4>MABBONZ SOFTWARES, JAIPUR</h4>
+                <ul>
+                    <li>Developed AI-driven recommendation engine for e-commerce platform</li>
+                    <li>Customized Shopify themes and built dynamic storefronts</li>
+                    <li>Developed automated inventory management system with CSV processing</li>
+                    <li>Implemented custom PHP integrations between Shopify APIs and MySQL databases</li>
+                    <li>Built AJAX-powered dynamic UI components for real-time updates</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education">
+        <h2 class="section-title">Education</h2>
+        <div class="education-grid">
+            <div class="education-card fade-in">
+                <h3>2018 - 2020</h3>
+                <div class="degree">Master of Technology</div>
+                <div class="institution">Computer Science | Banasthali Vidyapith, Banasthali</div>
+                <span class="percentage">Percentage: 79.8%</span>
+            </div>
+
+            <div class="education-card fade-in">
+                <h3>2014 - 2018</h3>
+                <div class="degree">Bachelor of Technology</div>
+                <div class="institution">Computer Science | Jayoti Vidyapeeth, Jaipur</div>
+                <span class="percentage">Percentage: 79.8%</span>
+            </div>
+
+            <div class="education-card fade-in">
+                <h3>2012 - 2014</h3>
+                <div class="degree">Secondary School Certificate</div>
+                <div class="institution">CBSE Board | KV Public School, Meerut</div>
+                <span class="percentage">Percentage: 85.5%</span>
+            </div>
+
+            <div class="education-card fade-in">
+                <h3>2010 - 2012</h3>
+                <div class="degree">Higher School Certificate</div>
+                <div class="institution">CBSE Board | Arcadian Public School, Bajna</div>
+                <span class="percentage">Percentage: 79.8%</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <h2 class="section-title">Featured Projects</h2>
+        <div class="projects-grid">
+            <div class="project-card fade-in">
+                <div class="project-header">
+                    <h3>Insurance Management System</h3>
+                    <div class="company">AIC of India Limited</div>
+                </div>
+                <div class="project-body">
+                    <p>Comprehensive insurance portal managing multiple modules including Shrimp, Fire, Property, and Aquaculture insurance with Django backend and RESTful APIs.</p>
+                    <div class="tech-stack">
+                        <span class="tech-badge">Python</span>
+                        <span class="tech-badge">Django</span>
+                        <span class="tech-badge">MySQL</span>
+                        <span class="tech-badge">AWS Lambda</span>
+                        <span class="tech-badge">Bootstrap</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card fade-in">
+                <div class="project-header">
+                    <h3>Social Media Platform Backend</h3>
+                    <div class="company">Adgama Digital</div>
+                </div>
+                <div class="project-body">
+                    <p>Scalable backend architecture supporting hundreds of concurrent users with Redis caching and AWS AppSync deployment for optimal performance.</p>
+                    <div class="tech-stack">
+                        <span class="tech-badge">PHP</span>
+                        <span class="tech-badge">Zend Framework</span>
+                        <span class="tech-badge">Redis</span>
+                        <span class="tech-badge">AWS AppSync</span>
+                        <span class="tech-badge">MySQL</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card fade-in">
+                <div class="project-header">
+                    <h3>AI Store Management System</h3>
+                    <div class="company">Adgama Digital</div>
+                </div>
+                <div class="project-body">
+                    <p>High-performance web application with rule-based pricing engine and real-time inventory tracking using Node.js and MongoDB.</p>
+                    <div class="tech-stack">
+                        <span class="tech-badge">Node.js</span>
+                        <span class="tech-badge">Express.js</span>
+                        <span class="tech-badge">MongoDB</span>
+                        <span class="tech-badge">AngularJS</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card fade-in">
+                <div class="project-header">
+                    <h3>Payment Gateway Integration</h3>
+                    <div class="company">Adgama Digital</div>
+                </div>
+                <div class="project-body">
+                    <p>Integrated Stripe and PayPal payment gateways with automated billing system and subscription-based access control.</p>
+                    <div class="tech-stack">
+                        <span class="tech-badge">PHP</span>
+                        <span class="tech-badge">Stripe API</span>
+                        <span class="tech-badge">PayPal API</span>
+                        <span class="tech-badge">Webhooks</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card fade-in">
+                <div class="project-header">
+                    <h3>Snappy App Builder</h3>
+                    <div class="company">Appy Pie LLP</div>
+                </div>
+                <div class="project-body">
+                    <p>Developed high-performance APIs and led application revamp with enhanced features and improved security layers.</p>
+                    <div class="tech-stack">
+                        <span class="tech-badge">Laravel</span>
+                        <span class="tech-badge">Node.js</span>
+                        <span class="tech-badge">AngularJS</span>
+                        <span class="tech-badge">AWS</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card fade-in">
+                <div class="project-header">
+                    <h3>Modish Store E-Commerce</h3>
+                    <div class="company">Mabbonz Softwares</div>
+                </div>
+                <div class="project-body">
+                    <p>AI-driven e-commerce platform with personalized recommendations and automated inventory management on Shopify.</p>
+                    <div class="tech-stack">
+                        <span class="tech-badge">Shopify</span>
+                        <span class="tech-badge">PHP</span>
+                        <span class="tech-badge">MySQL</span>
+                        <span class="tech-badge">AJAX</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2 class="section-title">Get In Touch</h2>
+        <div style="text-align: center; max-width: 600px; margin: 0 auto;">
+            <p style="font-size: 1.1rem; color: var(--gray); margin-bottom: 2rem;">
+                I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
+            </p>
+            <div class="contact-info" style="justify-content: center; color: var(--dark);">
+                <div class="contact-item">
+                    <span>📧</span>
+                    <a href="mailto:tejashwanishah@gmail.com" style="color: var(--primary);">tejashwanishah@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                    <span>📱</span>
+                    <a href="tel:+919205639940" style="color: var(--primary);">+91 9205639940</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Tejashwani Shah. All rights reserved.</p>
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/tejashwani-shah/" target="_blank" title="LinkedIn">💼</a>
+            <a href="mailto:tejashwanishah@gmail.com" title="Email">📧</a>
+            <a href="tel:+919205639940" title="Phone">📱</a>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Close menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Scroll Animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Header shadow on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.style.boxShadow = '0 5px 30px rgba(0, 0, 0, 0.15)';
+            } else {
+                header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+            }
+        });
+    </script>
+</body>
+</html>
